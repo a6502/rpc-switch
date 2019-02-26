@@ -960,6 +960,7 @@ sub _disconnect {
 	$self->log->info('oh my.... ' . ($client->who // 'somebody')
 				. ' (' . $client->from . ') disonnected..');
 
+	delete $self->clients->{refaddr($client)};
 	return unless $client->who;
 
 	for my $m (keys %{$client->methods}) {
@@ -992,7 +993,6 @@ sub _disconnect {
 		#delete $self->channels->{$vci};
 		$c->delete();
 	}
-	delete $self->clients->{refaddr($client)};
 }
 
 
