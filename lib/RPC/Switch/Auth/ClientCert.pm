@@ -43,6 +43,7 @@ sub authenticate {
 	while (<$fh>) {
 		chomp;
 		my ($a, $b) = split /:/;
+		next unless $a; # skip invalid lines
 		if ($a eq $cn) {
 			@u = split /,/, $b;
 			last;
