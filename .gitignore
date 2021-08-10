@@ -3,6 +3,7 @@
 *.old
 *.ffweg
 etc/*
+log/*
 tmp/*
 nytprof.out
 nytprof/*
